@@ -7,7 +7,7 @@ This project demonstrates practical experience with Microsoft Sentinel, KQL anal
 
 Project Overview
 This lab was designed to:
-* Capture real-world bruteforce login attempts against a honeypot VM
+* Capture real-world brute force login attempts against a honeypot VM
 * Centralize Windows Security Event logs in a Log Analytics Workspace
 * Enrich attacker IPs with geolocation data using a Sentinel Watchlist
 * Visualize global attack patterns through Sentinel Workbooks
