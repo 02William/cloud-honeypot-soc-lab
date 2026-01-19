@@ -1,0 +1,10 @@
+SecurityEvent
+| where EventID == 4625
+| project
+    TimeGenerated,
+    Account = TargetAccount,
+    IpAddress = IpAddress,
+    LogonTypeName,
+    Activity,
+    Computer
+| order by TimeGenerated desc

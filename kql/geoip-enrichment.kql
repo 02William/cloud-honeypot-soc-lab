@@ -1,0 +1,22 @@
+let GeoIP = _GetWatchlist('GeoIP');
+SecurityEvent
+| where EventID == 4625
+| project
+    TimeGenerated,
+    Account = TargetAccount,
+    IpAddress = IpAddress,
+    Activity,
+    Computer
+| join kind=leftouter GeoIP on $left.IpAddress == $right.ip
+| project
+    TimeGenerated,
+    Account,
+    IpAddress,
+    Country = country,
+    Region = region,
+    City = city,
+    Latitude = latitude,
+    Longitude = longitude,
+    Activity,
+    Computer
+| order by TimeGenerated desc

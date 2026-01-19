@@ -1,0 +1,7 @@
+let GeoIP = _GetWatchlist('GeoIP');
+SecurityEvent
+| where EventID == 4625
+| project IpAddress = IpAddress
+| join kind=leftouter GeoIP on $left.IpAddress == $right.ip
+| summarize Attempts = count() by Country = country
+| order by Attempts desc
